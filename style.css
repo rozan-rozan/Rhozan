@@ -1,0 +1,440 @@
+*{
+    font-family: "poppins", serif;
+    scrollbar-width: none;
+}
+body{
+    display: flex;
+    margin: 0;
+    background-color: black;
+}
+
+/* -------------------- THEME -------------------- */
+
+.darkmode{
+    animation: darktheme 1s;
+}
+.lightmode{
+    animation: lighttheme 1s;
+    filter: invert(100%);
+}
+@keyframes darktheme{
+    from{
+        filter: invert(100%);
+    }to{
+        filter: invert(0%);
+    }
+}
+@keyframes lighttheme{
+    from{
+        filter: invert(0%);
+    }to{
+        filter: invert(100%);
+    }
+}
+
+/* -------------------- AREA -------------------- */
+
+.area1{
+    width: 20%;
+    height: 100%;
+    position: fixed;
+}
+.area2{
+    width: 80%;
+    height: 100%;
+    position: relative;
+    left: 20%;
+}
+
+.area1 .window1{
+    margin: 20px;
+    margin-right: 10px;
+    padding: 20px;
+    height: calc(100% - 40px - 40px); /* - t.margin - t.padding */
+    width: calc(100% - 30px - 40px);  /* - t.margin - t.padding */
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.area2 .window1{
+    margin: 20px;
+    margin-left: 10px;
+    padding: 20px;
+    height: calc(100% - 40px - 40px); /* - t.margin - t.padding */
+    width: calc(100% - 30px - 40px);  /* - t.margin - t.padding */
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 10px;               
+    overflow: hidden;
+    position: relative;
+}
+@media only screen and (max-width: 480px) {
+    .area2 .window1{
+        padding: 20px;
+        height: calc(100% - 40px - 40px); /* - t.margin - t.padding */
+        width: calc(100% - 30px - 40px);  /* - t.margin - t.padding */
+    }
+}
+
+/* -------------------- BACKGORUND VID -------------------- */
+
+.bgvideo{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+.area1 .window1 .bgvideo{
+    left: -20px;
+}
+.area2 .window1 .bgvideo{
+    left: calc(-20vw - 10px);
+}
+
+/* -------------------- TEXT -------------------- */
+
+.name{
+    z-index: 2;
+    color: white;
+    font-size: 25;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+.name span {
+    margin-top: -7px;
+    margin-bottom: -7px;
+}
+@media only screen and (max-width: 480px) {
+    .name {
+        transform: rotate(90deg);
+        position: relative;
+        left: -30px;
+        top: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+    .name span {
+        margin-top: -50px;
+        margin-right: 10px;
+    }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .name {
+        font-size: 25;
+    }
+    .name span {
+        margin-top: -7px;
+        margin-bottom: -7px;
+    }
+}
+
+.copyright{
+    z-index: 2;
+    color: white;
+    font-size: 10;
+    position: absolute;
+    bottom: 20px;
+}
+@media only screen and (max-width: 480px) {
+    .copyright{
+        transform: rotate(90deg);
+        bottom: 20px;
+        left: 0;
+        font-size: 9;
+    }
+}
+
+.title{
+    width: calc(100%);
+    color: white;
+    display: flex;
+    z-index: 2;
+    position: relative;
+}
+.row{
+    flex-direction: row;
+    height: calc(10%);
+}
+.column{
+    flex-direction: column;
+    height: calc(20%);
+}
+.title span {
+    font-size: 12vh;
+    font-weight: 800;
+    margin-top: -4.5vh;
+    margin-bottom: -4.5vh;
+}
+.stroke{
+    -webkit-text-stroke: 0.5px white;
+    color: black;
+}
+@media only screen and (max-width: 480px) {
+    .row{
+        height: calc(10% * 0.4);
+    }
+    .column{
+        height: calc(20% * 0.4);
+    }
+    .title span {
+        font-size: calc(12vh * 0.4);
+        font-weight: 800;
+        margin-top: calc(-4.5vh * 0.4);
+        margin-bottom: calc(-4.5vh * 0.4);
+    }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .row{
+        height: calc(10% * 0.4);
+    }
+    .column{
+        height: calc(20% * 0.4);
+    }
+    .title span {
+        font-size: calc(12vh * 0.4);
+        font-weight: 800;
+        margin-top: calc(-4.5vh * 0.4);
+        margin-bottom: calc(-4.5vh * 0.4);
+    }
+}
+
+/* -------------------- BUTTON -------------------- */
+
+.themeswitch{
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 35;
+    left: 5;
+}
+#theme-switch {
+    background: none;
+    border: none;
+    fill: white;
+}
+#theme-switch:hover{
+    cursor: pointer;
+    fill: grey;
+}
+.themeswitch svg:last-child{
+    display: none;
+}
+.lightmode .themeswitch svg:first-child{
+    display: none;
+}
+.lightmode .themeswitch svg:last-child{
+    display: block;
+}
+@media only screen and (max-width: 480px) {
+    .themeswitch{
+        bottom: 75px;
+    }
+}
+
+/* -------------------- ABOUT ME -------------------- */
+
+.aboutme{
+    margin-top: 20px;
+    width: calc(100%);   /* - total margin */
+    height: auto;   /* - total margin */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, .65);
+    border-radius: 10px;
+}
+.aboutmedesc{
+    margin: 50px;
+    font-size: 15;
+    width: calc(100% - 100px);
+    text-align: justify;
+    color: white;
+}
+@media only screen and (max-width: 480px) {
+    .aboutme{
+        margin-top: 20px;
+        width: calc(100%);   /* - total margin */
+        height: auto;   /* - total margin */
+    }
+    .aboutmedesc{
+        margin: 20px;
+        font-size: 15;
+        width: calc(100% - 40px);
+        text-align: justify;
+        color: white;
+    }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .aboutme{
+        margin-top: 20px;
+        width: calc(100%);   /* - total margin */
+        height: auto;   /* - total margin */
+    }
+}
+
+/* -------------------- PROJECT -------------------- */
+
+.projectlist{
+    margin-top: 20px;
+    width: calc(100%);
+    height: calc(80% - 20px);      /* - margin */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+}
+.project{
+    margin-bottom: 10px;
+    padding: 10px;
+    height: auto;
+    width: calc(100% - 20px);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .65);
+}
+.project:last-child{
+    margin-bottom: 0px;
+}
+.projectimage{
+    margin: 0;
+    height: 200px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+.projecthead{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.projectname{
+    width: 95%;
+    color: white;
+    position: relative;
+    font-size: 30;
+    font-weight: 800;
+}
+.projectlink{
+    align-content: center;
+}
+.projectlink a{
+    fill: white;
+}
+.projectdesc{
+    color: white;
+    position: relative;
+    font-size: 12;
+    margin-bottom: 10px;
+}
+.projecttools{
+    display: flex;
+}
+.projecttools span{
+    margin-right: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: black;
+    font-size: 10;
+    font-weight: 800;
+    background-color: white;
+    border-radius: 2px;
+}
+@media only screen and (max-width: 480px) {
+    .projectlist{
+        flex-direction: column;
+        height: calc(100% - 50px - 40px);      /* - t.margin - t.padding */
+    }
+    .project{
+        margin-right: 0px;
+        margin-bottom: 10px;
+        height: auto;
+        width: calc(100% - 20px);
+    }
+    .projectimage{
+        height: 150px;
+    }
+    .projectlink{
+        align-content: start;
+    }
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+    .projectlist{
+        flex-direction: column;
+        height: calc(100% - 50px - 40px);      /* - t.margin - t.padding */
+    }
+    .project{
+        margin-right: 0px;
+        margin-bottom: 10px;
+        height: auto;
+        width: calc(100% - 20px);
+    }
+    .projectimage{
+        height: 150px;
+    }
+    .projectlink{
+        align-content: start;
+    }
+}
+
+/* -------------------- INTRO -------------------- */
+
+.intro {
+    background-color: black;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    animation: intro 1s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+}
+.intrologo{
+    font-size: 20;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.intrologo span{
+    margin-top: -12px;
+    margin-bottom: -12x;
+}
+@keyframes intro {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
