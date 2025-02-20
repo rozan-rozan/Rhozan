@@ -244,6 +244,19 @@ body{
     }
 }
 
+/* -------------------- HOME -------------------- */
+
+.home{
+    background-color: grey;
+    color: white;
+    z-index: 5;
+    width: 100%;
+}
+.tagline{
+    background-color: red;
+    z-index: 5;
+}
+
 /* -------------------- ABOUT ME -------------------- */
 
 .aboutme{
