@@ -29,6 +29,7 @@
 #theme-switch:hover{
     cursor: pointer;
     fill: grey;
+    transition: 0.5s;
 }
 .themeswitch svg:last-child{
     display: none;
@@ -64,16 +65,25 @@ body{
     padding-bottom: 0;
 }
 .window{
-    height: calc(100vh - 40px - 30px);
-    /* 100vh - padding area - padding window */
     margin-bottom: 20px;
-    padding: 15px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    border-style: solid;
-    border-color: white;
-    border-width: 1px;
+    border-color: rgb(73, 73, 73);
+    z-index: 2;
+}
+.lightmode .window{
+    border-width: 1.5px;
+}
+.w1{
+    height: calc(100vh - 40px - 30px);
+    /* 100vh - padding area - padding window */
+    padding: 15px;
+}
+.w2{
+    height: calc(100vh - 40px - 40px);
+    /* 100vh - padding area - padding window */
+    padding: 20px;
 }
 
 /* BG VIDEO */
@@ -82,19 +92,28 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .w2 .bgvideo-area{
     position: absolute;
     left: calc(-20vw);
     top: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .bgvideo{
     height: 100vh;
     width: 100vw;
-    z-index: 1;
+    z-index: 2;
     object-fit: cover;
+    filter: blur(10px) brightness(0.8);
+}
+.bgbody{
+    position: fixed;
+    z-index: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: blur(5px) brightness(0.5);
 }
 
 /* LEFT AREA */
@@ -138,7 +157,6 @@ body{
 }
 .copyright{
     margin-top: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
     font-size: x-small;
     color: white;
     z-index: 5;
@@ -177,7 +195,7 @@ body{
 .tag{
     text-align: center;
     color: white;
-    font-size: 60;
+    font-size: 80;
     font-weight: 800;
     width: 80%;
     line-height: 1.2em;
@@ -188,10 +206,19 @@ body{
 }
 .tools div{
     width: 80%;
-    font-size: small;
+    font-size: medium;
     color: white;
     text-align: center;
     line-height: 1.5;
+}
+@media only screen and (max-width: 480px) {
+    .tag{
+        text-align: left;
+        font-size: 40;
+    }
+    .tools div{
+        text-align: left;
+    }
 }
 
 
@@ -205,12 +232,12 @@ body{
     position: relative;
 }
 .stroke{
-    -webkit-text-stroke: 0.5px white;
-    color: black;
+    -webkit-text-stroke: 0px white;
+    color: rgb(145, 145, 145);
 }
 .lightmode .stroke{
-    -webkit-text-stroke: 0;
-    color: rgb(75, 75, 75);
+    -webkit-text-stroke: 1px white;
+    color: rgba(0, 0, 0, 0.5);
 }
 .w-content{
     height: calc(90% - 20px);
@@ -249,6 +276,14 @@ body{
     border-radius: 5px;
     position: relative;
     z-index: 5;
+}
+.projectlist:hover .project{
+    filter:  brightness(0.2);
+    transition: 0.5s;
+}
+.projectlist .project:hover {
+    filter: brightness(1);
+    transition: 0.5s;
 }
 .lightmode .project{
     background-color: rgba(255, 255, 255, 0.05);
