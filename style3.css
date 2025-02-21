@@ -306,11 +306,13 @@ body{
     }
     .aboutme .pic{
         width: 30%;
+        aspect-ratio: 1 / 1;
         margin-bottom: 10px;
     }
-    .aboutme .pic img{
+    .aboutme .pic img {
         width: 100%;
-        border-radius: 5px;
+        height: 100%;
+        object-fit: cover; /* Agar gambar tetap proporsional */
     }
     .aboutme .desc{
         width: 100%;
