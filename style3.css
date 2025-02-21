@@ -298,6 +298,22 @@ body{
     width: 87%;
     margin-left: 3%;
     text-align: justify;
+    font-size: medium;
+}
+@media only screen and (max-width: 480px) {
+    .aboutme{
+        flex-direction: column;
+    }
+    .aboutme .pic{
+        width: 30%;
+        margin-bottom: 10px;
+    }
+    .aboutme .desc{
+        width: 100%;
+        margin-left: 0;
+        text-align: left;
+        font-size: small;
+    }
 }
 
 /* PROJECT */
