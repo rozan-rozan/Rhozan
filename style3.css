@@ -308,6 +308,10 @@ body{
         width: 30%;
         margin-bottom: 10px;
     }
+    .aboutme .pic img{
+        width: 100%;
+        border-radius: 5px;
+    }
     .aboutme .desc{
         width: 100%;
         margin-left: 0;
